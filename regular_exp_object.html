@@ -1,0 +1,31 @@
+<script type="text/javascript">
+    var regex = /\d+/g;
+    var string = "Tom contact number is 1011011010. His age is 35.";
+    string += "Mark contact number is 8912398912. His age is 45";
+    document.write(string.replace(/\d+/g, "XXX") + "<br/>");
+
+    var regexp = new RegExp("\\d+", "g");
+    var string = "Tom contact number is 1011011010. His age is 35.";
+    string += "Mark contact number is 8912398912. His age is 45";
+    document.write(string.replace(regexp, "XXX"));
+
+    var regexp = new RegExp("\\d+", "gi");
+    document.write("g = " + regexp.global + "<br/>");
+    document.write("i = " + regexp.ignoreCase + "<br/>");
+    document.write("m = " + regexp.multiline + "<br/>");
+    document.write("source = " + regexp.source + "<br/>");
+
+    var string = "Tom contact number is 1011011010. His age is 35.";
+    string += "Mark contact number is 8912398912. His age is 45";
+    var regexp = new RegExp("\\d+");
+    document.write(regexp.exec(string));
+
+    var string = "Tom contact number is 1011011010. His age is 35.";
+    string += "Mark contact number is 8912398912. His age is 45";
+    var regexp = new RegExp("\\d+", "g");
+    var result;
+    while ((result = regexp.exec(string)) != null) {
+        document.write(result[0] + "<br/>");
+    }
+
+</script>

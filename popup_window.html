@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Popup window</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script type="text/javascript">
+        var mywindow;
+        function openPopup(params) {
+            mywindow = window.open("https://www.google.co.in/", "_blank", "height=400, width=400");
+        }
+        function closePopup(params) {
+            mywindow.close();
+        }
+    </script>
+</head>
+
+<body>
+    <input type="button" value="Open popup" id="button" onclick="openPopup()" />
+    <input type="button" value="Close popup" id="button" onclick="closePopup()" />
+
+</body>
+
+</html>

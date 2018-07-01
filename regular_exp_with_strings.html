@@ -1,0 +1,24 @@
+<script type="text/javascript">
+    var string = "Tom contact number is 1011011010. His age is 35.";
+    string += "Mark contact number is 8912398912. His age is 45";
+
+    document.write(string.match(/\d+/g) + "<br/>");
+
+    var string = "Tom contact number is 1011011010. His age is 35.";
+    string += "Mark contact number is 8912398912. His age is 45";
+
+    document.write(string.replace(/\d+/g, "XXX") + "<br/>");
+
+    var string = "Tom contact number is 1011011010. His age is 35.";
+    string += "Mark contact number is 8912398912. His age is 45";
+
+    document.write(string.split(/\d+/) + "<br/>");
+
+    var string = "Tom contact number is 1011011010. His age is 35.";
+    string += "Mark contact number is 8912398912. His age is 45";
+
+    document.write(string.search(/\d+/) + "<br/>");
+
+    var string = "TOM contact number is 1011011010. tom is 35";
+    document.write(string.match(/tom/gi));
+</script>

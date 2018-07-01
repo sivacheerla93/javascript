@@ -1,2 +1,2 @@
 # javascript
-Javascript examples
+This is my javascript workspace!

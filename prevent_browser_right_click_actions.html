@@ -1,0 +1,15 @@
+<h1>On this page right click is disabled</h1>
+<script type="text/javascript">
+    document.oncontextmenu = disableRightClick;
+
+    function disableRightClick(event) {
+        event = event || window.event;
+
+        if (event.preventDefault) {
+            event.preventDefault();
+        }
+        else {
+            event.returnValue = false
+        }
+    }
+</script>

@@ -1,0 +1,53 @@
+<script type="text/javascript">
+    function whichMouseButtonClicked(event) {
+        var whichButton;
+        if (event.which) {
+            switch (event.which) {
+                case 1:
+                    whichButton = "Left Button Clicked";
+                    break;
+                case 2:
+                    whichButton = "Middle Button Clicked";
+                    break;
+                case 3:
+                    whichButton = "Right Button Clicked";
+                    break;
+                default:
+                    whichButton = "Invalid Button Clicked";
+                    break;
+            }
+        }
+        else {
+            switch (event.button) {
+                case 1:
+                    whichButton = "Left Button Clicked";
+                    break;
+                case 4:
+                    whichButton = "Middle Button Clicked";
+                    break;
+                case 2:
+                    whichButton = "Right Button Clicked";
+                    break;
+                default:
+                    whichButton = "Invalid Button Clicked";
+                    break;
+            }
+        }
+
+        alert(whichButton);
+    }
+
+    document.oncontextmenu = disableRightClick;
+
+    function disableRightClick(event) {
+        event = event || window.event;
+
+        if (event.preventDefault) {
+            event.preventDefault();
+        }
+        else {
+            event.returnValue = false
+        }
+    }
+</script>
+<button onmouseup="whichMouseButtonClicked(event)">Click Me</button>
