@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Strings</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script type="text/javascript">
+        function strConcat1() {
+            var first = "Siva";
+            var second = " Cheerla";
+            var third = first + second;
+            alert(third);
+        }
+        function strConcat2() {
+            var first = "Welcome to";
+            var second = "JavaScript!";
+            var third = first.concat(" ", second);
+            alert(third);
+        }
+        function strQuotes1() {
+            var name = "My name is \"Siva Cheerla\"!";
+            alert(name);
+        }
+        function strQuotes2() {
+            var name = 'Hello, I am \'Siva Cheerla\'!';
+            alert(name);
+        }
+        function strLower() {
+            var lower = "This is in LOWER CASE!";
+            alert(lower.toLowerCase());
+        }
+        function strUpper() {
+            var upper = "This is in upper case!";
+            alert(upper.toUpperCase());
+        }
+        function strLength() {
+            var len = "Length of a string!";
+            alert(len.length);
+        }
+        function strTrim() {
+            var first = " ABC ";
+            var second = " DEF ";
+            var res = first.trim() + second.trim();
+            alert(res);
+        }
+        function strReplace() {
+            var a = "Hello World";
+            var b = a.replace("World", "JavaScript!");
+            alert(b);
+        }
+        function strReplace2() {
+            var a = "A Blue bottle has blue ink on blue table!";
+            var b = a.replace(/blue/g, "green");
+            alert(b);
+
+            //Global insensitive!
+            var c = a.replace(/blue/gi, "green");
+            alert(c);
+        }
+        // Using substring() method
+        function subString1() {
+            var str = "Hello JavaScript";
+            result = str.substring(0, 5); // If the second param is smaller than first, the result is also same!
+            alert("This is the substring with substring() method: " + result);
+        }
+
+        // Using substr() method
+        function subStr1() {
+            var str = "Hello Siva Cheerla";
+            result = str.substr(1, 10);   // second param is counter, if the counter is not specified we can get string upto an end!
+            alert("This is the substring using substr() method: " + result);
+        }
+
+        // Using slice() method
+        // substring() and slice() are almost same except slice() doesn't swap values if second param is smaller!
+        function sliceStr() {
+            var str = "Java Tutorial";
+            result = str.slice(2, 10);
+            alert("This is the substring using slice() method: " + result);
+        }
+
+        // Using indexOf() method
+        function strIndex() {
+            var n = "Siva Cheerla";
+            result = n.indexOf("e");
+            alert("The postion of a character using indexOf() method is: " + result);
+        }
+        function getEmailDomain() {
+            var emailAddress = document.getElementById("addEmail").value;
+
+            if (emailAddress == "") {
+                alert("Enter email address!");
+            }
+
+            var email_part = emailAddress.substring(0, emailAddress.indexOf("@"));
+            var domain_part = emailAddress.substring(emailAddress.indexOf("@") + 1);
+
+            document.getElementById("resEmail").value = email_part;
+            document.getElementById("resDomain").value = domain_part;
+        }
+        function getWebsiteDomain() {
+            var website = document.getElementById("addWebsite").value;
+
+            if (website == "") {
+                alert("Enter Web URL!")
+            }
+
+            document.getElementById("resWebDomain").value = website.substring(website.lastIndexOf("."));
+        }
+    </script>
+</head>
+
+<body>
+    <h3>Strings</h3>
+    <input type="button" id="button" value="Concat with plus operator" onclick="strConcat1()" />
+    <br>
+    <input type="button" id="button" value="Concat with concat method" onclick="strConcat2()" />
+    <br>
+    <input type="button" id="button" value="Using single quote in a double quoted string!" onclick="strQuotes1()" />
+    <br>
+    <input type="button" id="button" value="Using single quote in a single quoted string!" onclick="strQuotes2()" />
+    <br>
+    <input type="button" id="button" value="This is in LOWER CASE!" onclick="strLower()" />
+    <br>
+    <input type="button" id="button" value="This is in uppercase!" onclick="strUpper()" />
+    <br>
+    <input type="button" id="button" value="Length of a string!" onclick="strLength()" />
+    <br>
+    <input type="button" id="button" value="Trimming a string!" onclick="strTrim()" />
+    <br>
+    <input type="button" id="button" value="Replacing a string!" onclick="strReplace()" />
+    <br>
+    <input type="button" id="button" value="Global Replacing of a string!" onclick="strReplace2()" />
+    <br>
+    <input type="button" id="button" value="String with substring() method" onclick="subString1()" />
+    <br>
+    <input type="button" id="button" value="String with substr() method" onclick="subStr1()" />
+    <br>
+    <input type="button" id="button" value="String with slice() method" onclick="sliceStr()" />
+    <br>
+    <input type="button" id="button" value="Position of character using indexOf() method" onclick="strIndex()" />
+    <br>
+    <h3>Getting Email and Domain part from an Email! using substring() & indexOf()</h3>
+    <form>
+        <table style="border: solid black 1px">
+            <tr>
+                <td>Email Address</td>
+                <td>
+                    <input type="text" id="addEmail" />
+                </td>
+            </tr>
+            <tr>
+                <td>Email part</td>
+                <td>
+                    <input type="text" id="resEmail" />
+                </td>
+            </tr>
+            <tr>
+                <td>Domain part</td>
+                <td>
+                    <input type="text" id="resDomain" />
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="button" id="button" value="Get Email & Domain" onclick="getEmailDomain()" />
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <h3>Getting website domain name! using substring() and lastIndexOf()</h3>
+    <form>
+        <table style="border: solid black 1px">
+            <tr>
+                <td>Website URL</td>
+                <td>
+                    <input type="text" id="addWebsite" />
+                </td>
+            </tr>
+            <tr>
+                <td>Domain name</td>
+                <td>
+                    <input type="text" id="resWebDomain" />
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="button" id="button" value="Get Email & Domain" onclick="getWebsiteDomain()" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

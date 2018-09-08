@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Ex Handling with Throw!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script type="text/javascript">
+        function exHandlingThrow(params) {
+            var numerator = prompt("Enter numerator: ");
+            var denominator = prompt("Enter denominator: ");
+            try {
+                if (denominator == 0) {
+                    throw {
+                        error: "Denominator error",
+                        message: "Denominator can't be zero",
+                        description: "Please enter any other number, other than zero"
+                    }
+                } else {
+                    document.write("The result is: " + (numerator / denominator) + "<br/>");
+                }
+            } catch (e) {
+                document.write("Error = " + e.error + "<br/>");
+                document.write("Message = " + e.message + "<br/>");
+                document.write("Description = " + e.description + "<br/>");
+            } finally {
+                document.write("This is the result from finally block: " + (numerator / denominator) + "<br/>");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h3>Exception handling with throw!</h3>
+    <input type="button" id="button" value="Click me" onclick="exHandlingThrow()" />
+</body>
+
+</html>

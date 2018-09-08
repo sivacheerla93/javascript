@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Add Numbers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script type="text/javascript">
+        function add() {
+            var firstnumber = document.getElementById("addFirst").value;
+            var secondnumber = document.getElementById("addSecond").value;
+            if (firstnumber == "") {
+                alert("Enter first number!!");
+                return;
+            }
+            if (secondnumber == "") {
+                alert("Enter second number!!");
+                return;
+            }
+            firstnumber = parseFloat(firstnumber);
+            secondnumber = parseFloat(secondnumber);
+            if (isNaN(firstnumber)) {
+                alert("First number is not valid!");
+                return;
+            }
+            if (isNaN(secondnumber)) {
+                alert("Second number is not valid!");
+                return;
+            }
+            document.getElementById("addResult").value = firstnumber + secondnumber;
+        }
+    </script>
+</head>
+
+<body>
+    <h3>Add Numbers</h3>
+    <form>
+        <table style="border: solid black 1px">
+            <tr>
+                <td>First Number</td>
+                <td>
+                    <input type="text" id="addFirst" />
+                </td>
+            </tr>
+            <tr>
+                <td>Second Number</td>
+                <td>
+                    <input type="text" id="addSecond" />
+                </td>
+            </tr>
+            <tr>
+                <td>Result</td>
+                <td>
+                    <input type="text" id="addResult" />
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="button" id="button" value="Add" onclick="add()" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

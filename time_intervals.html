@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Time Intervals</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script type="text/javascript">
+        function timeIntervalFunc(params) {
+            setInterval(getCurrentDateTime, 1000);
+
+            function getCurrentDateTime(params) {
+                document.getElementById("timeInterval").innerHTML = new Date();
+            }
+        }
+
+        // Intervals using start and stop
+        var intervalID;
+        function startClock() {
+            intervalID = setInterval(getDateTime, 1000);
+        }
+
+        function stopClock(params) {
+            clearInterval(intervalID);
+        }
+        function getDateTime(params) {
+            document.getElementById("startStopInterval").innerHTML = new Date();
+        }
+
+
+        // Timer
+        var intervalTime;
+        function startTimer(controlId) {
+            var control = document.getElementById(controlId);
+            var seconds = control.value;
+            seconds = seconds - 1;
+            if (seconds == 0) {
+                control.value = "Done";
+                return;
+            } else {
+                control.value = seconds;
+            }
+            intervalTime = setTimeout(function (params) {
+                startTimer('timerTxt');
+
+            }, 1000);
+        }
+        function stopTimer(params) {
+            clearTimeout(intervalTime);
+        }
+    </script>
+</head>
+
+<body>
+    <h3>Time Interval</h3>
+    <input type="button" id="button" value="Click me" onclick="timeIntervalFunc()" />
+    <div id="timeInterval"></div>
+
+    <h3>Time Interval using start and stop</h3>
+    <input type="button" id="button" value="Start Clock" onclick="startClock()" />
+    <input type="button" id="button" value="Stop Clock" onclick="stopClock()" />
+    <div id="startStopInterval"></div>
+
+    <h3>Timer</h3>
+    <input type="text" value="10" id="timerTxt" />
+    <br/>
+    <input type="button" id="button" value="Start Timer" onclick="startTimer('timerTxt')" />
+    <input type="button" id="button" value="Stop Timer" onclick="stopTimer()" />
+</body>
+
+</html>

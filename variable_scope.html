@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Variable Scope</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script type="text/javascript">
+        function varScope() {
+            // A local variable can have the same name as a global variable
+            var greeting = "This is from global Variable";
+
+            function helloWorld() {
+                var greeting = "This is from local variable";
+                document.write(greeting + "<br/>");
+            }
+
+            // This line will modify the global greeting variable
+            greeting += "!!!";
+
+            helloWorld();
+
+            document.write(greeting);
+        }
+    </script>
+</head>
+
+<body>
+    <h3>Variable scope</h3>
+    <input type="button" id="button" value="Get Result" onclick="varScope()" />
+
+</body>
+
+</html>

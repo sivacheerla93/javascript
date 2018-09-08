@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Closures</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script type="text/javascript">
+        function closuresDemo() {
+            function addNumbers(firstNumber, secondNumber) {
+                var returnValue = "Result is : ";
+                // This inner function has access to the outer function's variables & parameters
+                function add() {
+                    return returnValue + (firstNumber + secondNumber);
+                }
+                return add();
+            }
+
+            var result = addNumbers(10, 20);
+
+            document.write(result + "<br/>");
+
+
+
+
+
+            //The following code Returns the inner function expression
+            function addNumbers(firstNumber, secondNumber) {
+                var returnValue = "Result is : ";
+                function add() {
+                    return returnValue + (firstNumber + secondNumber);
+                }
+                // We removed the parentheses. This will return the
+                // inner function expression without executing it.
+                return add;
+            }
+
+            // addFunc will contain add() function (inner function) expression.
+            var addFunc = addNumbers(10, 20);
+            // call the addFunc() function and store the return value in result variable
+            var result = addFunc();
+
+            document.write(result + "<br/>");
+
+
+
+
+            //Returning and executing the inner function
+            function addNumbers(firstNumber, secondNumber) {
+                var returnValue = "Result is : ";
+                function add() {
+                    return returnValue + (firstNumber + secondNumber);
+                }
+                // We removed the parentheses. This will return the
+                // inner function add() expression without executing it.
+                return add;
+            }
+
+            // This returns add() function (inner function) definition
+            // and executes it. Notice the additonal parentheses.
+            var result = addNumbers(10, 20)();
+
+            document.write(result + "<br/>");
+        }
+
+        var incrementClickCount = (function () {
+            var clickCount = 0;
+            return function () {
+                return ++clickCount;
+            }
+        })();
+    </script>
+</head>
+
+<body>
+    <h3>Closures demo</h3>
+    <input type="button" id="button" value="Get Result" onclick="closuresDemo()" />
+    <h3>Click count using closure</h3>
+    <input type="button" id="button" value="Click me" onclick="alert(incrementClickCount());" />
+</body>
+
+</html>

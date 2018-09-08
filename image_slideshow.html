@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Image Slideshow</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script type="text/javascript">
+        var intervalId;
+
+        function startSlideShow(params) {
+            intervalId = setInterval(changeImage, 1500);
+        }
+
+        function stopSlideShow(params) {
+            clearInterval(intervalId);
+        }
+
+        function changeImage(params) {
+            var imageSrc = document.getElementById("image").getAttribute("src");
+            var currentImageNumber = imageSrc.substring(imageSrc.lastIndexOf("/") + 1, imageSrc.lastIndexOf("/") + 2);
+            if (currentImageNumber == 6) {
+                currentImageNumber = 0;
+            }
+            var newImage = "images/" + (Number(currentImageNumber) + 1) + ".jpg";
+            document.getElementById("image").setAttribute("src", newImage);
+        }
+    </script>
+</head>
+
+<body>
+    <h3>Image SlideShow</h3>
+    <img src="images/1.jpg" id="image" style="width: 100%; height:100%" />
+    <br/>
+    <input type="button" id="button" value="Start Slide Show" onclick="startSlideShow()" />
+    <input type="button" id="button" value="Stop Slide Show" onclick="stopSlideShow()" />
+
+</body>
+
+</html>

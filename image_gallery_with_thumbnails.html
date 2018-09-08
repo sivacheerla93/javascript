@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Image gallery with thumbnails</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  <script type="text/javascript">
+    var images = document.getElementById("imgDiv").getElementsByTagName("img");
+    for (var i = 0; i < images.length; i++) {
+      images[i].onmouseover = function () {
+        this.style.cursor = "hand";
+        this.style.borderColor = "red";
+      };
+      images[i].onmouseout = function () {
+        this.style.cursor = "pointer";
+        this.style.borderColor = "grey";
+      };
+    }
+
+    function changeImage(event) {
+      event = event || window.event;
+
+      var targetElement = event.target || event.srcElement;
+
+      if (targetElement.tagName == "IMG") {
+        document.getElementById("mainImage").src = targetElement.getAttribute(
+          "src"
+        );
+      }
+    }
+
+  </script>
+</head>
+
+<body>
+  <h3>Image gallery with thumbnails!</h3>
+  <img height="540px" width="540px" style="border: 3px solid grey" src="images/1.jpg" id="mainImage" />
+  <br />
+  <div id="imgDiv" onclick="changeImage(event)">
+    <img class="imgStyle" src="images/1.jpg" />
+    <img class="imgStyle" src="images/2.jpg" />
+    <img class="imgStyle" src="images/3.jpg" />
+    <img class="imgStyle" src="images/4.jpg" />
+    <img class="imgStyle" src="images/5.jpg" />
+  </div>
+</body>
+
+</html>

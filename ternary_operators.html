@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Ternary Operators</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script type="text/javascript">
+        function ternaryOperators() {
+            var input = document.getElementById("monthNumber").value;
+
+            if (isNaN(input)) {
+                alert("Month number is not valid! Please enter in the range(1-12)!!");
+                return;
+            }
+
+            var month = input == 1 ? "January" : input == 2 ? "February" : input == 3 ? "Marach" : input == 4 ? "April" : input == 5 ? "May" : input == 6 ? "June" :
+                input == 7 ? "July" : input == 8 ? "August" : input == 9 ? "September" : input == 10 ? "October" : input == 11 ? "November" : input == 12 ? "December" :
+                    "Month number not valid!";
+
+            alert("Your month name is: " + month);
+        }</script>
+</head>
+
+<body>
+    <!-- Ternary opertors -->
+    <h3>Ternary opertaors!</h3>
+    <input type="text" id="monthNumber" />
+    <input type="button" id="button" value="Get Month" onclick="ternaryOperators()" />
+
+</body>
+
+</html>
