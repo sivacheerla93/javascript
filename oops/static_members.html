@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Circle(radius) {
+            // Instance field
+            this.Radius = radius;
+
+            // Static field
+            Circle.PI = 3.141;
+
+            this.CalculateArea = function () {
+                return Circle.PI * this.Radius * this.Radius;
+            }
+        }
+
+        var circleObject = new Circle(10);
+        document.write("Area = " + circleObject.CalculateArea());
+
+
+
+
+        // example 2
+        function Shape(shapeName) {
+            // Instance field
+            this.ShapeName = shapeName;
+
+            // Static Field
+            Shape.Count = ++Shape.Count || 1;
+
+            // Static method
+            Shape.ShowCount = function () {
+                return Shape.Count;
+            }
+        }
+
+        var shape1 = new Shape("Circle");
+        var shape2 = new Shape("Rectangle");
+        var shape3 = new Shape("Triangle");
+
+        document.write("Shape.Count = " + Shape.ShowCount());
+    </script>
+</body>
+
+</html>

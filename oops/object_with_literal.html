@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        var employee = {
+            firstName: "Pragim",
+            lastName: "Tech",
+
+            getFullName: function () {
+                return this.firstName + " " + this.lastName;
+            }
+        }
+
+        document.write("FirstName = " + employee.firstName + "<br/>");
+        document.write("LastName = " + employee.lastName + "<br/>");
+        document.write("FullName = " + employee.getFullName() + "<br/>");
+    </script>
+</body>
+
+</html>

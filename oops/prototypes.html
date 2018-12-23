@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>
+        Using the prototype object to add functions : The following are the advantages of using the prototype object to
+        add functions.<br />
+        1. No matter how many objects you create, functions are loaded only once into memory<br />
+        2. Allows you to override functions if required.<br />
+    </p>
+    <script>
+        function Employee(name) {
+            this.name = name;
+        }
+
+        Employee.prototype.getName = function () {
+            return this.name;
+        }
+
+        var e1 = new Employee("Mark");
+        var e2 = new Employee("Sara");
+
+        document.write("e1.name = " + e1.getName() + "<br/>");
+        document.write("e2.name = " + e2.getName() + "<br/>");
+    </script>
+</body>
+
+</html>

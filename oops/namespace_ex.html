@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        var PragimTech = PragimTech || {};
+        PragimTech.TeamA = PragimTech.TeamA || {};
+
+        PragimTech.TeamA.customer = function (firstName, lastName) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+
+            this.getFullName = function () {
+                return this.firstName + " " + this.lastName;
+            }
+
+            return this;
+        }
+
+
+        var PragimTech = PragimTech || {};
+        PragimTech.TeamB = PragimTech.TeamB || {};
+
+        PragimTech.TeamB.customer = function (firstName, middleName, lastName) {
+            this.firstName = firstName;
+            this.middleName = middleName;
+            this.lastName = lastName;
+
+            this.getFullName = function () {
+                return this.firstName + " " + this.middleName + " " + this.lastName;
+            }
+
+            return this;
+        }
+
+        alert(PragimTech.TeamA.customer("Tom", "Grover").getFullName());
+        alert(PragimTech.TeamB.customer("Tom", "T", "Grover").getFullName());
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

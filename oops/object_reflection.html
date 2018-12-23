@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var Employee = function (firstName, lastName, gender, email) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.gender = gender;
+            this.email = email;
+        }
+
+        Employee.prototype.getFullName = function () {
+            return this.firstName + " " + this.lastName;
+        }
+
+        Employee.prototype.getEmail = function () {
+            return this.email;
+        }
+
+        Employee.prototype.getGender = function () {
+            return this.gender;
+        }
+
+        var employee = new Employee("Mark", "Matt", "Male", "a@a.com");
+
+        for (var property in employee) {
+            document.write(property + "<br/>");
+        }
+
+        document.write("<br/>");
+
+        for (var property in employee) {
+            document.write(property + " : " + employee[property] + "<br/>");
+        }
+
+
+        document.write("<br/>");
+        //The following code retrieves only the public properties of the Employee object.
+
+        for (var property in employee) {
+            if (typeof employee[property] != "function") {
+                document.write(property + " : " + employee[property] + "<br/>");
+            }
+        }
+
+
+        document.write("<br/>");
+        //The following code retrieves only the public functions of the Employee object. 
+
+        for (var property in employee) {
+            if (typeof employee[property] == "function") {
+                document.write(property + " : " + employee[property] + "<br/>");
+            }
+        }
+
+
+        document.write("<br />");
+        //When 2 objects are related thru inheritance, the child object will have access to parent object methods and properties. In this example, PermanentEmployee is a child of Employee. The following code shows all the properties and methods of the PermanentEmployee object including those it inherited from the Employee object. 
+
+        var employee = new Employee("Mark", "Matt", "Male", "a@a.com");
+
+        var PermanentEmployee = function (annualSalry) {
+            this.annualSalary = annualSalry;
+        }
+
+        PermanentEmployee.prototype = employee;
+
+        var pe = new PermanentEmployee(50000);
+
+        for (var property in pe) {
+            document.write(property + " : " + pe[property] + "<br/>");
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <select id="ddlTheme" onchange="setColorCookie()">
+        <option value="Select Color">Select Color</option>
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+    </select>
+    <script type="text/javascript">
+        window.onload = function () {
+            if (document.cookie.length != 0) {
+                var nameValueArray = document.cookie.split("=");
+                document.getElementById("ddlTheme").value = nameValueArray[1];
+                document.bgColor = nameValueArray[1];
+            }
+        }
+
+        function setColorCookie() {
+            var selectedValue = document.getElementById("ddlTheme").value;
+            if (selectedValue != "Select Color") {
+                document.bgColor = selectedValue;
+                document.cookie = "color=" + selectedValue +
+                    ";expires=Mon, 24 Dec 2018 01:00:00 UTC;";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
